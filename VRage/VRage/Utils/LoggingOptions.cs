@@ -1,0 +1,30 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: VRage.Utils.LoggingOptions
+// Assembly: VRage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: A58B56E2-8FB0-4C25-B2B4-ADDA35DEFA91
+// Assembly location: D:\Files\library_development\lib_se\VRage.dll
+
+using System;
+
+namespace VRage.Utils
+{
+  [Flags]
+  public enum LoggingOptions
+  {
+    NONE = 1,
+    ENUM_CHECKING = 2,
+    LOADING_MODELS = 4,
+    LOADING_TEXTURES = 8,
+    LOADING_CUSTOM_ASSETS = 16, // 0x00000010
+    LOADING_SPRITE_VIDEO = 32, // 0x00000020
+    VALIDATING_CUE_PARAMS = 64, // 0x00000040
+    CONFIG_ACCESS = 128, // 0x00000080
+    SIMPLE_NETWORKING = 256, // 0x00000100
+    VOXEL_MAPS = 512, // 0x00000200
+    MISC_RENDER_ASSETS = 1024, // 0x00000400
+    AUDIO = 2048, // 0x00000800
+    TRAILERS = 4096, // 0x00001000
+    SESSION_SETTINGS = 8192, // 0x00002000
+    ALL = SESSION_SETTINGS | TRAILERS | AUDIO | MISC_RENDER_ASSETS | VOXEL_MAPS | SIMPLE_NETWORKING | CONFIG_ACCESS | VALIDATING_CUE_PARAMS | LOADING_SPRITE_VIDEO | LOADING_CUSTOM_ASSETS | LOADING_TEXTURES | LOADING_MODELS | ENUM_CHECKING | NONE, // 0x00003FFF
+  }
+}

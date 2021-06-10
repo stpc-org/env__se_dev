@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <!--Project was exported from assembly: D:\Files\library_development\lib_se\Sandbox.Common.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B6BE999-D916-4BB8-9ADE-64715759780C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Sandbox.Common</AssemblyName>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <RootNamespace>Sandbox.ModAPI</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="VRage">
+      <HintPath>lib\VRage.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Game">
+      <HintPath>lib\VRage.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Input">
+      <HintPath>lib\VRage.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Library">
+      <HintPath>lib\VRage.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Math">
+      <HintPath>lib\VRage.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Network">
+      <HintPath>lib\VRage.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProcessedByFody.cs" />
+    <Compile Include="Sandbox\Common\ModAPI\IMyVendingMachine.cs" />
+    <Compile Include="IMyAdvancedDoor.cs" />
+    <Compile Include="IMyAirtightDoorBase.cs" />
+    <Compile Include="IMyAirtightHangarDoor.cs" />
+    <Compile Include="IMyAirtightSlideDoor.cs" />
+    <Compile Include="IMyAssembler.cs" />
+    <Compile Include="IMyAttachableTopBlock.cs" />
+    <Compile Include="IMyBatteryBlock.cs" />
+    <Compile Include="IMyBeacon.cs" />
+    <Compile Include="IMyBlockGroup.cs" />
+    <Compile Include="IMyCameraBlock.cs" />
+    <Compile Include="IMyCargoContainer.cs" />
+    <Compile Include="IMyCockpit.cs" />
+    <Compile Include="IMyCollector.cs" />
+    <Compile Include="IMyConveyor.cs" />
+    <Compile Include="IMyConveyorSorter.cs" />
+    <Compile Include="IMyConveyorTube.cs" />
+    <Compile Include="IMyCryoChamber.cs" />
+    <Compile Include="IMyDecoy.cs" />
+    <Compile Include="IMyDoor.cs" />
+    <Compile Include="IMyExhaustBlock.cs" />
+    <Compile Include="IMyExtendedPistonBase.cs" />
+    <Compile Include="IMyFunctionalBlock.cs" />
+    <Compile Include="IMyGridProgram.cs" />
+    <Compile Include="IMyGridTerminalSystem.cs" />
+    <Compile Include="IMyGyro.cs" />
+    <Compile Include="IMyIngameScripting.cs" />
+    <Compile Include="MyVRageIngameScriptingAdapter.cs" />
+    <Compile Include="IMyInventoryBag.cs" />
+    <Compile Include="IMyJumpDrive.cs" />
+    <Compile Include="IMyLargeTurretBase.cs" />
+    <Compile Include="IMyLaserAntenna.cs" />
+    <Compile Include="IMyLightingBlock.cs" />
+    <Compile Include="IMyMechanicalConnectionBlock.cs" />
+    <Compile Include="IMyMeteor.cs" />
+    <Compile Include="IMyMotorAdvancedRotor.cs" />
+    <Compile Include="IMyMotorAdvancedStator.cs" />
+    <Compile Include="IMyMotorBase.cs" />
+    <Compile Include="IMyMotorRotor.cs" />
+    <Compile Include="IMyMotorStator.cs" />
+    <Compile Include="IMyMotorSuspension.cs" />
+    <Compile Include="IMyOreDetector.cs" />
+    <Compile Include="IMyGasGenerator.cs" />
+    <Compile Include="IMyOxygenGenerator.cs" />
+    <Compile Include="IMyGasTank.cs" />
+    <Compile Include="IMyOxygenTank.cs" />
+    <Compile Include="IMyPassage.cs" />
+    <Compile Include="IMyPistonBase.cs" />
+    <Compile Include="IMyPistonTop.cs" />
+    <Compile Include="IMyPowerProducer.cs" />
+    <Compile Include="IMyProductionBlock.cs" />
+    <Compile Include="MyProductionQueueItem.cs" />
+    <Compile Include="IMyProgrammableBlock.cs" />
+    <Compile Include="BuildCheckResult.cs" />
+    <Compile Include="IMyProjector.cs" />
+    <Compile Include="IMyRadioAntenna.cs" />
+    <Compile Include="IMyReactor.cs" />
+    <Compile Include="IMyRefinery.cs" />
+    <Compile Include="IMyReflectorLight.cs" />
+    <Compile Include="IMyRemoteControl.cs" />
+    <Compile Include="IMyScriptBlacklist.cs" />
+    <Compile Include="IMyScriptBlacklistBatch.cs" />
+    <Compile Include="IMySensorBlock.cs" />
+    <Compile Include="IMyShipConnector.cs" />
+    <Compile Include="IMyShipController.cs" />
+    <Compile Include="IMyShipDrill.cs" />
+    <Compile Include="IMyShipGrinder.cs" />
+    <Compile Include="IMyShipToolBase.cs" />
+    <Compile Include="IMyShipWelder.cs" />
+    <Compile Include="IMySmallGatlingGun.cs" />
+    <Compile Include="IMySmallMissileLauncher.cs" />
+    <Compile Include="IMySmallMissileLauncherReload.cs" />
+    <Compile Include="IMyStoreBlock.cs" />
+    <Compile Include="IMyTargetDummyBlock.cs" />
+    <Compile Include="IMyTerminalActionsHelper.cs" />
+    <Compile Include="IMyTerminalBlock.cs" />
+    <Compile Include="CustomControlGetDelegate.cs" />
+    <Compile Include="CustomActionGetDelegate.cs" />
+    <Compile Include="IMyTerminalControls.cs" />
+    <Compile Include="IMyTextPanel.cs" />
+    <Compile Include="IMyTextSurface.cs" />
+    <Compile Include="IMyTextSurfaceProvider.cs" />
+    <Compile Include="IMyThrust.cs" />
+    <Compile Include="IMyUpgradableBlock.cs" />
+    <Compile Include="IMyUpgradeModule.cs" />
+    <Compile Include="IMyUserControllableGun.cs" />
+    <Compile Include="IMyWarhead.cs" />
+    <Compile Include="IMyWheel.cs" />
+    <Compile Include="MyAPIGateway.cs" />
+    <Compile Include="Interfaces\ITerminalAction.cs" />
+    <Compile Include="Interfaces\ITerminalProperty.cs" />
+    <Compile Include="Interfaces\ITerminalProperty`1.cs" />
+    <Compile Include="Interfaces\TerminalPropertyExtensions.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalAction.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControl.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlButton.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlCheckbox.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlColor.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlCombobox.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlLabel.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlListbox.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlOnOffSwitch.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlProperty`1.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlSeparator.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlSlider.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlTextbox.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalControlTitleTooltip.cs" />
+    <Compile Include="Interfaces\Terminal\IMyTerminalValueControl`1.cs" />
+    <Compile Include="Ingame\IMyAdvancedDoor.cs" />
+    <Compile Include="Ingame\IMyAirtightDoorBase.cs" />
+    <Compile Include="Ingame\IMyAirtightHangarDoor.cs" />
+    <Compile Include="Ingame\IMyAirtightSlideDoor.cs" />
+    <Compile Include="Ingame\MyAssemblerMode.cs" />
+    <Compile Include="Ingame\IMyAssembler.cs" />
+    <Compile Include="Ingame\IMyAttachableTopBlock.cs" />
+    <Compile Include="Ingame\ChargeMode.cs" />
+    <Compile Include="Ingame\IMyBatteryBlock.cs" />
+    <Compile Include="Ingame\IMyBeacon.cs" />
+    <Compile Include="Ingame\IMyBlockGroup.cs" />
+    <Compile Include="Ingame\IMyCameraBlock.cs" />
+    <Compile Include="Ingame\IMyCargoContainer.cs" />
+    <Compile Include="Ingame\IMyCockpit.cs" />
+    <Compile Include="Ingame\IMyCollector.cs" />
+    <Compile Include="Ingame\IMyConveyor.cs" />
+    <Compile Include="Ingame\MyConveyorSorterMode.cs" />
+    <Compile Include="Ingame\MyInventoryItemFilter.cs" />
+    <Compile Include="Ingame\IMyConveyorSorter.cs" />
+    <Compile Include="Ingame\IMyConveyorTube.cs" />
+    <Compile Include="Ingame\IMyCryoChamber.cs" />
+    <Compile Include="Ingame\IMyDecoy.cs" />
+    <Compile Include="Ingame\DoorStatus.cs" />
+    <Compile Include="Ingame\IMyDoor.cs" />
+    <Compile Include="Ingame\IMyExtendedPistonBase.cs" />
+    <Compile Include="Ingame\IMyFunctionalBlock.cs" />
+    <Compile Include="Ingame\IMyGridProgramRuntimeInfo.cs" />
+    <Compile Include="Ingame\IMyGridTerminalSystem.cs" />
+    <Compile Include="Ingame\IMyGyro.cs" />
+    <Compile Include="Ingame\IMyIntergridCommunicationSystem.cs" />
+    <Compile Include="Ingame\TransmissionDistance.cs" />
+    <Compile Include="Ingame\MyIGCMessage.cs" />
+    <Compile Include="Ingame\IMyMessageProvider.cs" />
+    <Compile Include="Ingame\IMyBroadcastListener.cs" />
+    <Compile Include="Ingame\IMyUnicastListener.cs" />
+    <Compile Include="Ingame\MyJumpDriveStatus.cs" />
+    <Compile Include="Ingame\IMyJumpDrive.cs" />
+    <Compile Include="Ingame\IMyLargeTurretBase.cs" />
+    <Compile Include="Ingame\MyLaserAntennaStatus.cs" />
+    <Compile Include="Ingame\IMyLaserAntenna.cs" />
+    <Compile Include="Ingame\IMyLightingBlock.cs" />
+    <Compile Include="Ingame\IMyMechanicalConnectionBlock.cs" />
+    <Compile Include="Ingame\IMyMotorAdvancedRotor.cs" />
+    <Compile Include="Ingame\IMyMotorAdvancedStator.cs" />
+    <Compile Include="Ingame\IMyMotorBase.cs" />
+    <Compile Include="Ingame\IMyMotorRotor.cs" />
+    <Compile Include="Ingame\IMyMotorStator.cs" />
+    <Compile Include="Ingame\IMyMotorSuspension.cs" />
+    <Compile Include="Ingame\IMyOreDetector.cs" />
+    <Compile Include="Ingame\IMyGasGenerator.cs" />
+    <Compile Include="Ingame\IMyOxygenGenerator.cs" />
+    <Compile Include="Ingame\IMyGasTank.cs" />
+    <Compile Include="Ingame\IMyOxygenTank.cs" />
+    <Compile Include="Ingame\IMyPassage.cs" />
+    <Compile Include="Ingame\IMyPistonBase.cs" />
+    <Compile Include="Ingame\IMyPistonTop.cs" />
+    <Compile Include="Ingame\IMyPowerProducer.cs" />
+    <Compile Include="Ingame\MyProductionItem.cs" />
+    <Compile Include="Ingame\IMyProductionBlock.cs" />
+    <Compile Include="Ingame\UpdateFrequency.cs" />
+    <Compile Include="Ingame\UpdateType.cs" />
+    <Compile Include="Ingame\IMyProgrammableBlock.cs" />
+    <Compile Include="Ingame\IMyProjector.cs" />
+    <Compile Include="Ingame\MyTransmitTarget.cs" />
+    <Compile Include="Ingame\IMyRadioAntenna.cs" />
+    <Compile Include="Ingame\IMyReactor.cs" />
+    <Compile Include="Ingame\IMyRefinery.cs" />
+    <Compile Include="Ingame\IMyReflectorLight.cs" />
+    <Compile Include="Ingame\FlightMode.cs" />
+    <Compile Include="Ingame\MyWaypointInfo.cs" />
+    <Compile Include="Ingame\IMyRemoteControl.cs" />
+    <Compile Include="Ingame\IMySensorBlock.cs" />
+    <Compile Include="Ingame\MyShipConnectorStatus.cs" />
+    <Compile Include="Ingame\IMyShipConnector.cs" />
+    <Compile Include="Ingame\MyShipMass.cs" />
+    <Compile Include="Ingame\MyPlanetElevation.cs" />
+    <Compile Include="Ingame\MyShipVelocities.cs" />
+    <Compile Include="Ingame\IMyShipController.cs" />
+    <Compile Include="Ingame\IMyShipDrill.cs" />
+    <Compile Include="Ingame\IMyShipGrinder.cs" />
+    <Compile Include="Ingame\IMyShipToolBase.cs" />
+    <Compile Include="Ingame\IMyShipWelder.cs" />
+    <Compile Include="Ingame\IMySmallGatlingGun.cs" />
+    <Compile Include="Ingame\IMySmallMissileLauncher.cs" />
+    <Compile Include="Ingame\IMySmallMissileLauncherReload.cs" />
+    <Compile Include="Ingame\MyStoreInsertResults.cs" />
+    <Compile Include="Ingame\IMyStoreBlock.cs" />
+    <Compile Include="Ingame\IMyTargetDummyBlock.cs" />
+    <Compile Include="Ingame\IMyTerminalBlock.cs" />
+    <Compile Include="Ingame\TerminalBlockExtentions.cs" />
+    <Compile Include="Ingame\IMyTextPanel.cs" />
+    <Compile Include="Ingame\IMyTextSurface.cs" />
+    <Compile Include="Ingame\IMyTextSurfaceProvider.cs" />
+    <Compile Include="Ingame\IMyThrust.cs" />
+    <Compile Include="Ingame\IMyUpgradableBlock.cs" />
+    <Compile Include="Ingame\IMyUpgradeModule.cs" />
+    <Compile Include="Ingame\IMyUserControllableGun.cs" />
+    <Compile Include="Ingame\IMyWarhead.cs" />
+    <Compile Include="Ingame\IMyWheel.cs" />
+    <Compile Include="Ingame\MyDetectedEntityType.cs" />
+    <Compile Include="Ingame\MyDetectedEntityInfo.cs" />
+    <Compile Include="Ingame\MyGridProgram.cs" />
+    <Compile Include="Ingame\MyStoreQueryItem.cs" />
+    <Compile Include="Ingame\PistonStatus.cs" />
+    <Compile Include="Ingame\TerminalActionParameter.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

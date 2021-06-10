@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <!--Project was exported from assembly: D:\Files\library_development\lib_se\VRage.Input.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0BA70A7E-C2DD-4AA3-BEB7-65924E630AB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>VRage.Input</AssemblyName>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <RootNamespace>VRage.Input</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="VRage">
+      <HintPath>lib\VRage.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Library">
+      <HintPath>lib\VRage.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Math">
+      <HintPath>lib\VRage.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Network">
+      <HintPath>lib\VRage.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProcessedByFody.cs" />
+    <Compile Include="IMyControlNameLookup.cs" />
+    <Compile Include="RequestedJoystickAxis.cs" />
+    <Compile Include="IMyInput.cs" />
+    <Compile Include="IMyControllerControl.cs" />
+    <Compile Include="IMyControlsBindingScheme.cs" />
+    <Compile Include="MyControl.cs" />
+    <Compile Include="MyControllerHelper.cs" />
+    <Compile Include="MyControlStateType.cs" />
+    <Compile Include="MyControlType.cs" />
+    <Compile Include="MyDescriptor.cs" />
+    <Compile Include="MyGuiGameControlsHelpers.cs" />
+    <Compile Include="MyNullInput.cs" />
+    <Compile Include="MyVRageInput.cs" />
+    <Compile Include="MyEnumsToStrings.cs" />
+    <Compile Include="MyGuiControlTypeEnum.cs" />
+    <Compile Include="MyGuiInputDeviceEnum.cs" />
+    <Compile Include="MyInput.cs" />
+    <Compile Include="MyJoystickButtonsEnum.cs" />
+    <Compile Include="MyKeys.cs" />
+    <Compile Include="MyMouseButtonsEnum.cs" />
+    <Compile Include="MySharedButtonsEnum.cs" />
+    <Compile Include="Keyboard\MyGuiLocalizedKeyboardState.cs" />
+    <Compile Include="Keyboard\MyKeyboardBuffer.cs" />
+    <Compile Include="Keyboard\MyKeyboardState.cs" />
+    <Compile Include="Keyboard\MyKeyHasher.cs" />
+    <Compile Include="Joystick\MyJoystickConstants.cs" />
+    <Compile Include="Joystick\MyJoystickExtensions.cs" />
+    <Compile Include="VRage\ModAPI\IMyControl.cs" />
+    <Compile Include="VRage\ModAPI\IMyInput.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

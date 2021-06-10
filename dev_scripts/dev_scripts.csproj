@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBF85C83-F0C8-45AB-8CBD-DD8E2196C3CC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>dev_scripts</RootNamespace>
+    <AssemblyName>dev_scripts</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sandbox.Common\Sandbox.Common.csproj">
+      <Project>{7b6be999-d916-4bb8-9ade-64715759780c}</Project>
+      <Name>Sandbox.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sandbox.Game\Sandbox.Game.csproj">
+      <Project>{6d97040d-2c32-4fa8-8b47-1386be1841fa}</Project>
+      <Name>Sandbox.Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpaceEngineers.Game\SpaceEngineers.Game.csproj">
+      <Project>{7a739ed3-2d2d-4e25-8c29-a5030287b1b4}</Project>
+      <Name>SpaceEngineers.Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VRage.Game\VRage.Game.csproj">
+      <Project>{0720cdb5-7a84-4cb6-8500-6542a635ee34}</Project>
+      <Name>VRage.Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VRage.Input\VRage.Input.csproj">
+      <Project>{0ba70a7e-c2dd-4aa3-beb7-65924e630ab8}</Project>
+      <Name>VRage.Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VRage.Library\VRage.Library.csproj">
+      <Project>{75fc677d-9334-4efd-8263-ae8a01e2aa6f}</Project>
+      <Name>VRage.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VRage.Math\VRage.Math.csproj">
+      <Project>{d277023a-dfcd-4728-9780-0eeca7505632}</Project>
+      <Name>VRage.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VRage\VRage.csproj">
+      <Project>{8dc2bde1-0c7e-4e06-85c3-f84f7c031a49}</Project>
+      <Name>VRage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="template\template.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

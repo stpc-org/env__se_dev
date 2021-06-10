@@ -1,0 +1,159 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: Sandbox.Game.Screens.DebugScreens.MyGuiScreenDebugCubeBlocks
+// Assembly: Sandbox.Game, Version=0.1.1.0, Culture=neutral, PublicKeyToken=null
+// MVID: 343E1F2F-C9E5-4CAA-B3CC-F9D203DAE0A8
+// Assembly location: D:\Files\library_development\lib_se\Sandbox.Game.dll
+
+using Sandbox.Definitions;
+using Sandbox.Engine.Utils;
+using Sandbox.Game.Entities;
+using Sandbox.Game.Entities.Cube;
+using Sandbox.Game.Gui;
+using Sandbox.Graphics.GUI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using VRage;
+using VRage.Game;
+using VRage.Game.Models;
+using VRageMath;
+
+namespace Sandbox.Game.Screens.DebugScreens
+{
+  [MyDebugScreen("Game", "Cube Blocks")]
+  internal class MyGuiScreenDebugCubeBlocks : MyGuiScreenDebugBase
+  {
+    public static MySymmetryAxisEnum? DebugXMirroringAxis;
+    public static MySymmetryAxisEnum? DebugYMirroringAxis;
+    public static MySymmetryAxisEnum? DebugZMirroringAxis;
+    private MyGuiControlSlider m_dummyDrawDistanceSlider;
+    private MyGuiControlCombobox m_xMirroringCombo;
+    private MyGuiControlCombobox m_yMirroringCombo;
+    private MyGuiControlCombobox m_zMirroringCombo;
+    private MyGuiControlLabel m_currentMirrorAxisLabel;
+    private MyGuiControlLabel m_currentAxisLabel;
+
+    public override string GetFriendlyName() => nameof (MyGuiScreenDebugCubeBlocks);
+
+    public MyGuiScreenDebugCubeBlocks()
+      : base()
+      => this.RecreateControls(true);
+
+    public override void RecreateControls(bool constructor)
+    {
+      base.RecreateControls(constructor);
+      this.m_scale = 0.7f;
+      this.AddCaption("Cube blocks", new Vector4?(Color.Yellow.ToVector4()));
+      this.AddShareFocusHint();
+      this.m_currentPosition = -this.m_size.Value / 2f + new Vector2(0.02f, 0.1f);
+      this.m_currentMirrorAxisLabel = this.AddLabel("Mirror axis: " + MyCubeBuilderGizmo.CurrentBlockMirrorAxis.ToString(), Color.Yellow.ToVector4(), 1.2f);
+      this.m_currentAxisLabel = this.AddLabel("Block axis: " + MyCubeBuilderGizmo.CurrentBlockMirrorOption.ToString(), Color.Yellow.ToVector4(), 1.2f);
+      this.m_currentPosition = this.m_currentPosition + new Vector2(0.0f, 0.015f);
+      this.AddLabel("X symmetry", Color.Yellow.ToVector4(), 1.2f);
+      this.m_xMirroringCombo = this.AddCombo();
+      this.AddMirroringTypes(this.m_xMirroringCombo);
+      this.m_xMirroringCombo.ItemSelected += new MyGuiControlCombobox.ItemSelectedDelegate(this.m_xMirroringCombo_ItemSelected);
+      this.AddLabel("Y symmetry", Color.Yellow.ToVector4(), 1.2f);
+      this.m_yMirroringCombo = this.AddCombo();
+      this.AddMirroringTypes(this.m_yMirroringCombo);
+      this.m_yMirroringCombo.ItemSelected += new MyGuiControlCombobox.ItemSelectedDelegate(this.m_yMirroringCombo_ItemSelected);
+      this.AddLabel("Z symmetry", Color.Yellow.ToVector4(), 1.2f);
+      this.m_zMirroringCombo = this.AddCombo();
+      this.AddMirroringTypes(this.m_zMirroringCombo);
+      this.m_zMirroringCombo.ItemSelected += new MyGuiControlCombobox.ItemSelectedDelegate(this.m_zMirroringCombo_ItemSelected);
+      this.AddButton(new StringBuilder("Symmetry reset"), new Action<MyGuiControlButton>(this.onClick_SymmetryReset));
+      this.m_dummyDrawDistanceSlider = this.AddSlider("Dummies draw distance", MyDebugDrawSettings.DEBUG_DRAW_MODEL_DUMMIES_DISTANCE, 0.0f, 100f);
+      this.m_dummyDrawDistanceSlider.ValueChanged = new Action<MyGuiControlSlider>(this.DummyDrawDistanceSliderChanged);
+      this.m_currentPosition = this.m_currentPosition + new Vector2(0.0f, 0.15f);
+      this.AddCheckBox("Debug draw all mount points", MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_ALL, new Action<MyGuiControlCheckbox>(this.onClick_DebugDrawMountPointsAll));
+      this.AddCheckBox("Debug draw mount points", MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS, new Action<MyGuiControlCheckbox>(this.onClick_DebugDrawMountPoints));
+      this.AddCheckBox("Forward", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_AXIS0)));
+      this.AddCheckBox("Backward", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_AXIS1)));
+      this.AddCheckBox("Left", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_AXIS2)));
+      this.AddCheckBox("Right", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_AXIS3)));
+      this.AddCheckBox("Up", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_AXIS4)));
+      this.AddCheckBox("Down", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_AXIS5)));
+      this.AddCheckBox("Draw autogenerated", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_AUTOGENERATE)));
+      this.AddCheckBox("CubeBlock Integrity", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_BLOCK_INTEGRITY)));
+      this.AddCheckBox("Armor Block Tile Normals", (object) null, MemberHelper.GetMember<bool>((Expression<Func<bool>>) (() => MyDebugDrawSettings.DEBUG_DRAW_ARMOR_BLOCK_TILE_NORMALS)));
+      this.AddButton(new StringBuilder("Save generated mountpoints"), new Action<MyGuiControlButton>(this.onClick_Save)).VisualStyle = MyGuiControlButtonStyleEnum.Default;
+      this.AddButton(new StringBuilder("Reload definitions"), new Action<MyGuiControlButton>(this.onClick_Reload)).VisualStyle = MyGuiControlButtonStyleEnum.Default;
+    }
+
+    private void m_xMirroringCombo_ItemSelected()
+    {
+      if (this.m_xMirroringCombo.GetSelectedIndex() != -1)
+        MyGuiScreenDebugCubeBlocks.DebugXMirroringAxis = new MySymmetryAxisEnum?((MySymmetryAxisEnum) this.m_xMirroringCombo.GetSelectedKey());
+      else
+        MyGuiScreenDebugCubeBlocks.DebugXMirroringAxis = new MySymmetryAxisEnum?();
+    }
+
+    private void m_yMirroringCombo_ItemSelected()
+    {
+      if (this.m_yMirroringCombo.GetSelectedIndex() != -1)
+        MyGuiScreenDebugCubeBlocks.DebugYMirroringAxis = new MySymmetryAxisEnum?((MySymmetryAxisEnum) this.m_yMirroringCombo.GetSelectedKey());
+      else
+        MyGuiScreenDebugCubeBlocks.DebugYMirroringAxis = new MySymmetryAxisEnum?();
+    }
+
+    private void m_zMirroringCombo_ItemSelected()
+    {
+      if (this.m_zMirroringCombo.GetSelectedIndex() != -1)
+        MyGuiScreenDebugCubeBlocks.DebugZMirroringAxis = new MySymmetryAxisEnum?((MySymmetryAxisEnum) this.m_zMirroringCombo.GetSelectedKey());
+      else
+        MyGuiScreenDebugCubeBlocks.DebugZMirroringAxis = new MySymmetryAxisEnum?();
+    }
+
+    private void AddMirroringTypes(MyGuiControlCombobox combo)
+    {
+      combo.Clear();
+      foreach (object obj in Enum.GetValues(typeof (MySymmetryAxisEnum)))
+        combo.AddItem((long) (int) obj, Enum.GetName(typeof (MySymmetryAxisEnum), obj));
+    }
+
+    private void DummyDrawDistanceSliderChanged(MyGuiControlSlider slider) => MyDebugDrawSettings.DEBUG_DRAW_MODEL_DUMMIES_DISTANCE = slider.Value;
+
+    private void onClick_DebugDrawMountPointsAll(MyGuiControlCheckbox obj) => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS_ALL = obj.IsChecked;
+
+    private void onClick_DebugDrawMountPoints(MyGuiControlCheckbox sender) => MyDebugDrawSettings.DEBUG_DRAW_MOUNT_POINTS = sender.IsChecked;
+
+    private void onClick_Save(MyGuiControlButton sender)
+    {
+      foreach (MyDefinitionBase allDefinition in MyDefinitionManager.Static.GetAllDefinitions())
+      {
+        if (allDefinition is MyCubeBlockDefinition cubeBlockDefinition && !string.IsNullOrEmpty(cubeBlockDefinition.Model))
+        {
+          MyCubeBlockDefinition.MountPoint[] mountPointArray = MyCubeBuilder.AutogenerateMountpoints(MyModels.GetModel(cubeBlockDefinition.Model), MyDefinitionManager.Static.GetCubeSize(cubeBlockDefinition.CubeSize));
+          cubeBlockDefinition.MountPoints = ((IEnumerable<MyCubeBlockDefinition.MountPoint>) mountPointArray).ToArray<MyCubeBlockDefinition.MountPoint>();
+        }
+      }
+      MyDefinitionManager.Static.Save("CubeBlocks_*.*");
+    }
+
+    private void onClick_Reload(MyGuiControlButton sender)
+    {
+      MyDefinitionManager.Static.UnloadData(true);
+      MyDefinitionManager.Static.LoadData(new List<MyObjectBuilder_Checkpoint.ModItem>());
+    }
+
+    private void onClick_SymmetryReset(MyGuiControlButton sender)
+    {
+      this.m_xMirroringCombo.SelectItemByIndex(-1);
+      this.m_yMirroringCombo.SelectItemByIndex(-1);
+      this.m_zMirroringCombo.SelectItemByIndex(-1);
+      MyGuiScreenDebugCubeBlocks.DebugXMirroringAxis = new MySymmetryAxisEnum?();
+      MyGuiScreenDebugCubeBlocks.DebugYMirroringAxis = new MySymmetryAxisEnum?();
+      MyGuiScreenDebugCubeBlocks.DebugZMirroringAxis = new MySymmetryAxisEnum?();
+    }
+
+    public override bool Update(bool hasFocus)
+    {
+      int num = base.Update(hasFocus) ? 1 : 0;
+      this.m_currentMirrorAxisLabel.Text = "Mirror axis: " + MyCubeBuilderGizmo.CurrentBlockMirrorAxis.ToString();
+      this.m_currentAxisLabel.Text = "Block axis: " + MyCubeBuilderGizmo.CurrentBlockMirrorOption.ToString();
+      return num != 0;
+    }
+  }
+}
