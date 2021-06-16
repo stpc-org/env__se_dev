@@ -402,7 +402,8 @@ namespace TEMPLATE
 		void init_script_display_units()
 		{
 			//获取LCD编组
-			IMyBlockGroup group_temp = GridTerminalSystem.GetBlockGroupWithName(tag__info_display_LCD_group);
+			//TODO: 按你的开发需求来获取用于脚本信息输出的方块
+			IMyBlockGroup group_temp = GridTerminalSystem.GetBlockGroupWithName("");
 
 			if(group_temp!=null)
 			{
