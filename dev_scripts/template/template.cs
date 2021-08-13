@@ -42,7 +42,7 @@ namespace TEMPLATE
 		#region 脚本字段
 
 		//字符串 脚本版本号
-		readonly string str__script_version = "AMCCS V0.1.5";
+		readonly string str__script_version = "TEMPLATE V0.0.0";
 		//数组 运行时字符显示
 		string[] array__runtime_chars = new string[]
 		{
@@ -283,7 +283,7 @@ namespace TEMPLATE
 						//TODO: 在这里编写脚本如何根据不同的显示模式为LCD显示信息
 
 						case DisplayUnit.DisplayMode.None:
-						item.displayer.WriteText("<warning> illegal custom data in this LCD\n<by> script AMCCS");
+						item.displayer.WriteText("<warning> illegal custom data in this LCD\n<by> script TEMPLATE");
 						break;
 					}
 				}
