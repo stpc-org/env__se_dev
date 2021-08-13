@@ -1,4 +1,4 @@
-﻿/***************************************************************************************************
+﻿/** ************************************************************************************************
 *
 * ### In-Game Script Development Template (脚本英文全称) ###
 * ### IGSDT(脚本英文缩写) | 这里填写脚本中文名 --------- ###
@@ -31,7 +31,7 @@ using VRage.Game.GUI.TextPanel;
 using VRage.Game;
 using VRageMath;
 
-//TODO: 在这里设置一个命名空间名称, 名称随意但保证不同脚本的命名空间不同
+///TODO: 在这里设置一个命名空间名称, 名称随意但保证不同脚本的命名空间不同
 //我推荐使用全大写的下划线命名方式
 namespace TEMPLATE
 {
@@ -59,10 +59,10 @@ namespace TEMPLATE
 		};
 
 
-		/*
+		/**
 		 * TODO: 在这里设置脚本的字段, 这些字段的生命周期与脚本一致
 		 * 建议在此存储脚本选项和存储一些脚本运行时所必要的对象
-		 * 本模板在下面默认地提供了一个用于设置脚本更新频率的变量
+		 * 本模板在下面默认地提供了一个用于设置脚本更新输出频率的变量
 		 * 这个 period__update_output 变量请勿删去, 有一些代码依赖此值
 		 */
 
@@ -100,7 +100,7 @@ namespace TEMPLATE
 		CustomDataConfig config_script;
 		//配置集合 脚本
 		CustomDataConfigSet config_set__script;
-		/*
+		/**
 		 * TODO: 这里可以添加其它的配置集合, CustomDataConfig 对象支持动态配置,
 		 * 也就是说可以先解析CD数据, 之后根据已有的数据决定是否添加下一个配置集
 		 * 以实现动态效果
@@ -157,10 +157,10 @@ namespace TEMPLATE
 		{
 			if(mode_script==ScriptMode.Regular)
 			{
-				//TODO: 这里可以检查脚本的运行模式, 执行你设计的逻辑, 没有其它运行模式可以删去这段代码
+				///TODO: 这里可以检查脚本的运行模式, 执行你设计的逻辑, 没有其它运行模式可以删去这段代码
 			}
 
-			//TODO: 这里写脚本每一次(自动)更新时需要执行的逻辑
+			///TODO: 这里写脚本每一次(自动)更新时需要执行的逻辑
 
 
 
@@ -181,31 +181,31 @@ namespace TEMPLATE
 				{
 					case "cmd_0"://命令对应的字符串
 					{
-						//TODO: 这里写命令对应的代码
+						///TODO: 这里写命令对应的代码
 					}
 					break;
-					case "cmd_1"://开火
-					{
-						//TODO: 这里写命令对应的代码
+					case "cmd_1"://命令对应的字符串
+						{
+						///TODO: 这里写命令对应的代码
 					}
 					break;
-					//TODO: 下面可以添加你设计的命令
+					///TODO: 下面可以添加你设计的命令
 				}
 			}
 			else
 			{
 				//下面的命令是带有一个整数参数的, 需要多个参数也以此类推
-				//TODO: 如果没有带参数的命令可以删除
+				///TODO: 如果没有带参数的命令可以删除
 				int index_group = 0;
 				int.TryParse(cmd[1],out index_group);
 				switch(cmd[0])//检查命令
 				{
 					case "cmd_2":
 					{
-						//TODO: 这里写命令对应的代码
+						///TODO: 这里写命令对应的代码
 					}
 					break;
-					//TODO: 下面可以添加你设计的命令
+					///TODO: 下面可以添加你设计的命令
 				}
 			}
 		}
@@ -230,8 +230,9 @@ namespace TEMPLATE
 				+"\n<mode_script>"+mode_script
 				+"\n<count_update> "+count_update
 				+"\n<count_trigger> "+count__run_cmd
-				//TODO: 在这里添加其它的信息显示, 自行设计
+				///TODO: 在这里添加其它的信息显示, 自行设计
 				);
+			//输出到编程块终端
 			Echo(string_builder__default_info.ToString());
 
 			//更新动态字符图案
@@ -244,12 +245,13 @@ namespace TEMPLATE
 			}
 			--times__before_next_char_pattern_update;
 
-			//TODO: 这里可以写一些别的信息显示的代码
+			///TODO: 这里可以写一些别的信息显示的代码
 
-			//这里遍历显示单元进行输出
+			//以下代码遍历显示单元进行输出 (也即输出到指定的显示屏上, 比如说驾驶舱的显示屏等)
 			foreach(var item in list__display_units)
 			{
-				if(item.flag_graphic)
+				//DisplayUnit 类型有一个 flag_graphic 变量用来标识是否应该输出图形化信息到对应的显示器上
+				if (item.flag_graphic)
 				{
 					//图形化显示
 
@@ -263,7 +265,7 @@ namespace TEMPLATE
 						draw_illegal_lcd_custom_data_hint(item.displayer);
 						break;
 
-						//TODO: 在这里编写脚本如何根据不同的显示模式为LCD显示信息
+						///TODO: 在这里编写脚本如何根据不同的显示模式为LCD显示信息 (图形化显示)
 
 					}
 				}
@@ -280,7 +282,7 @@ namespace TEMPLATE
 						item.displayer.WriteText(string_builder__default_info);
 						break;
 
-						//TODO: 在这里编写脚本如何根据不同的显示模式为LCD显示信息
+						///TODO: 在这里编写脚本如何根据不同的显示模式为LCD显示信息 (文本显示)
 
 						case DisplayUnit.DisplayMode.None:
 						item.displayer.WriteText("<warning> illegal custom data in this LCD\n<by> script TEMPLATE");
@@ -291,7 +293,7 @@ namespace TEMPLATE
 
 			//显示测试信息
 			/*
-			 * TODO: 如果你的脚本还处在测试阶段, 可以为添加信息输出到 string_builder__test_info 对象中
+			 * TODO: 如果你的脚本还处在测试阶段, 可以添加信息输出到 string_builder__test_info 对象中
 			 * 然后取消下面这行代码的注释, 如果你的脚本已经无需测试了, 请把下面这行代码注释掉
 			 */
 			//Echo(string_builder__test_info.ToString());
@@ -333,7 +335,10 @@ namespace TEMPLATE
 			MySprite element__text = new MySprite()
 			{
 				Type=SpriteType.TEXT,
-				Data="<warning> illegal custom data in this LCD\n<by> script AMCCS",
+				/**
+				 * TODO: 修改脚本名称
+				 */ 
+				Data="<warning> illegal custom data in this LCD\n<by> script TEMPLATE",
 				Position=size*(new Vector2(0.5f,0.8f)),
 				Color=Color.White,
 				Alignment=TextAlignment.CENTER,
@@ -350,24 +355,31 @@ namespace TEMPLATE
 		//初始化脚本
 		void init_script()
 		{
-			init_script_config();//初始化脚本配置
-			string str_error = check_config();
+			//初始化脚本配置
+			init_script_config();
 			//检查配置合法性
-			if(str_error!=null) Echo(str_error);
+			string str_error = check_config();
+			
+			if(str_error!=null)
+				//输出错误信息
+				Echo(str_error);
 
-			//初始化配置
+			//初始化配置对象
 			config_script.init_config();
 			//显示错误信息
 			Echo(config_script.string_builder__error_info.ToString());
 
-			//TODO: 在这里编写你自定义的脚本初始化逻辑, 比如说获取方块对象啊等等
+			/**
+			 * TODO: 在这里编写你自定义的脚本初始化逻辑, 比如说获取方块对象等等脚本正常运行时需要的数据.
+			 * 为了提高代码的可读性和可维护行性, 可以在此调用一个或多个函数函数.
+			 */
 
 			//初始化显示单元
 			init_script_display_units();
 
 			//检查是否出现错误
 			if(str_error==null&&!config_script.flag__config_error)
-				//TODO: 若没有错误则设置执行频率, 选择你的脚本自动执行频率, 如果你的脚本不需要自动执行, 可以删除这段代码
+				///TODO: 若没有错误则设置执行频率, 选择你的脚本自动执行频率, 如果你的脚本不需要自动执行, 可以删除这段代码
 				Runtime.UpdateFrequency=UpdateFrequency.Update1;
 		}
 
@@ -376,10 +388,11 @@ namespace TEMPLATE
 		{
 			string info = null;
 
-			/*
-			* TODO: 在这里检查脚本的选项是否合法 (比如说数值参数是否太大或者太小等等)
-			* 如果发现错误的配置请返回一个string用来描述错误的具体情况, 这将反馈给用户并引导用户修正
-			*/
+			/**
+			 * TODO: 在这里检查脚本的选项是否合法. (比如说数值参数是否过大或者过小等等)
+			 * 如果发现错误的配置请返回一个string用来描述错误的具体情况, 这将反馈给用户并引导用户修正.
+			 * 注意, 在这里检查的内容通常是脚本字段中的那些配置成员变量.
+			 */
 
 			//如果没有错误就返回null
 			return null;
@@ -402,12 +415,12 @@ namespace TEMPLATE
 		void init_script_display_units()
 		{
 			//获取LCD编组
-			//TODO: 按你的开发需求来获取用于脚本信息输出的方块
+			///TODO: 按你的开发需求来获取用于脚本信息输出的方块
 			IMyBlockGroup group_temp = GridTerminalSystem.GetBlockGroupWithName("");
 
 			if(group_temp!=null)
 			{
-				//获取编组中的显示器和显示器提供者
+				//获取编组中的显示器和显示器提供者. (显示器提供者是指诸如驾驶舱, 编程块这类提供一个或多个显示屏幕的方块)
 				group_temp.GetBlocksOfType<IMyTextPanel>(list_displayers);
 				group_temp.GetBlocksOfType<IMyTextSurfaceProvider>(list__displayers_providers);
 			}
@@ -443,6 +456,7 @@ namespace TEMPLATE
 				bool flag_illegal = false;
 				int offset = 0;
 
+				//创建一个新的显示单元对象
 				DisplayUnit unit = new DisplayUnit(pair.Key);
 
 				if(list_str.Count==0)
@@ -465,14 +479,14 @@ namespace TEMPLATE
 						break;
 						case "idntifier"://脚本控制如何输出到LCD的方式是根据其CD中的对应配置
 						{
-							/*
-							* TODO: 这里通过解析LCD中的CD数据来设置 DisplayUnit类型的对象 "unit"的数据
-							* 之后在脚本的主循环 (update_script()函数) 中调用的 display_info() 函数
-							* 就可以根据 DisplayUnit 实例的数据来显示不同的信息
-							*/
+							/**
+							 * TODO: 这里通过解析LCD中的CD数据来设置 DisplayUnit类型的对象 (名为 "unit") 的数据.
+							 * 之后在脚本的主循环 (update_script() 函数) 中调用的 display_info() 函数中, 
+							 * 就可以根据 DisplayUnit 实例的数据来显示不同的信息.
+							 */
 							if(true)
 							{
-								//TODO: 在这里写你的解析逻辑
+								///TODO: 在这里写你的解析逻辑
 							}
 							else
 								//如果发现CD的数据并不合法, 就把这个bool类型的变量设为false
@@ -519,7 +533,7 @@ namespace TEMPLATE
 			config_set__script.add_line("MODE OF THE SCRIPT");
 			config_set__script.add_config_item(nameof(mode_script),() => mode_script,x => { mode_script=(ScriptMode)x; });
 			
-			//TODO: 在这里添加你的脚本配置项
+			///TODO: 在这里添加你的脚本配置项
 
 			//将配置集合添加到配置对象中
 			config_script.add_config_set(config_set__script);
@@ -537,7 +551,7 @@ namespace TEMPLATE
 		{
 			Regular,//常规模式
 
-			//TODO: 在这里添加你的脚本运行模式, 可以只有一个模式, 也可以没有任何模式
+			///TODO: 在这里添加你的脚本运行模式, 可以只有一个模式, 也可以没有任何模式
 		}
 
 		//类 显示单元(当成结构体用)
@@ -548,7 +562,7 @@ namespace TEMPLATE
 			{
 				General,//一般信息显示
 
-				//TODO: 在这里添加其它的显示模式, 这些模式决定了脚本如何输出到LCD上
+				///TODO: 在这里添加其它的显示模式, 这些模式决定了脚本如何输出到LCD上
 
 				None,//不显示内容
 			}
@@ -888,7 +902,7 @@ namespace TEMPLATE
 					}
 				}
 
-				//TODO: 如果需要让配置模块支持你自定义的类型(或其它类型), 在这里进行扩展
+				///TODO: 如果需要让配置模块支持你自定义的类型(或其它类型), 在这里进行扩展
 
 				return false;
 			}
