@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dev_scripts", "dev_scripts\dev_scripts.csproj", "{EBF85C83-F0C8-45AB-8CBD-DD8E2196C3CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dev__scripts", "dev__scripts\dev__scripts.csproj", "{EBF85C83-F0C8-45AB-8CBD-DD8E2196C3CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Common", "Sandbox.Common\Sandbox.Common.csproj", "{7B6BE999-D916-4BB8-9ADE-64715759780C}"
 EndProject
